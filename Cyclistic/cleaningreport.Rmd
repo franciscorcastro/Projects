@@ -1,0 +1,117 @@
+---
+title: "Report"
+author: "Francisco"
+date: "2024-07-14"
+output: html_document
+---
+## Merging CSV files
+Open Windows Command Prompt and merge csv files:
+
+```{bash eval=FALSE, include=FALSE}
+cd WorkingDirectoryPath
+copy *.csv merged.csv
+```
+
+## Installing and loading necessary packages for importing and cleaning data
+```{r}
+install.packages("tidyverse", repos="http://cran.us.r-project.org")
+install.packages("janitor", repos="http://cran.us.r-project.org")
+install.packages("here",repos="http://cran.us.r-project.org")
+install.packages("skimr", repos="http://cran.us.r-project.org")
+install.packages("ggplot2", repos="http://cran.us.r-project.org")
+install.packages("lubridate", repos="http://cran.us.r-project.org")
+install.packages("scales", repos="http://cran.us.r-project.org")
+library(tidyverse)
+library(janitor)
+library(here)
+library(skimr)
+library(ggplot2)
+library(lubridate)
+library(scales)
+```
+## Importing merged csv file
+```{r}
+twelve_months_data <- read_csv("~/Data Analysis/Certificado Google/Estudo de Caso - Cyclistic/Original Datasets/CSV files/merged.csv")
+```
+## Checking data integrity and structure
+```{r}
+colnames(twelve_months_data)
+str(twelve_months_data)
+View(twelve_months_data)
+```
+## Omitting entries with missing values and removing duplicates
+```{r}
+clean_twelve_months_data <- na.omit(twelve_months_data) %>% distinct(ride_id, .keep_all = TRUE)
+```
+## Creating new columns for analysis
+```{r}
+year_data_with_new_columns <- clean_twelve_months_data %>% mutate(ride_length = ended_at - started_at, day_of_week = weekdays(started_at)) %>% filter(ride_length > 0) %>% clean_names() 
+```
+##Exporting .csv file
+```{r}
+write_csv(year_data_with_new_columns, "cleandata.csv")
+```
+##Importing back .csv file for analysis
+```{r}
+cleandata <- read_csv("cleandata.csv")
+```
+##Creating Mode function in R
+Mode <- function(x, na.rm = FALSE) {
+  if(na.rm){
+    x = x[!is.na(x)]
+  }
+
+  ux <- unique(x)
+  return(ux[which.max(tabulate(match(x, ux)))])
+}
+##Performing summary analysis
+```{r}
+Mode(cleandata$day_of_week)
+seconds_to_period(mean(cleandata$ride_length))
+seconds_to_period(max(cleandata$ride_length))
+member_status_summary <- 
+    cleandata %>%
+    group_by(member_casual) %>%
+    filter(ride_length > 0) %>% 
+    summarize(average_ride_length=seconds_to_period(round(mean(ride_length))),
+              min_ride_length=seconds_to_period(round(min(ride_length), 2)),
+              max_ride_length=seconds_to_period(round(max(ride_length))),
+              most_common_day=Mode(day_of_week),
+              most_common_start_station=Mode(start_station_name),
+              most_common_end_station=Mode(end_station_name),
+              ride_count = n()) %>%
+    ungroup() %>%
+    mutate(percent = label_percent()(ride_count/sum(ride_count)))
+  day_of_week_summary <-
+      cleandata %>% 
+      group_by(day_of_week) %>% 
+      filter(ride_length > 0) %>% 
+      summarize(average_ride_length=seconds_to_period(round(mean(ride_length),1)),
+                num_of_rides = n()) %>% 
+      arrange(desc(num_of_rides))
+```
+##Visualizing
+```{r echo=TRUE}
+cleandata %>%
+  mutate(weekday = wday(started_at, label = TRUE)) %>%
+  group_by(member_casual, weekday) %>%
+  summarise(number_of_trips = n()
+    ,average_duration = mean(ride_length)) %>%
+  arrange(member_casual, weekday) %>%
+  ggplot(aes(x = weekday, y = number_of_trips, fill = member_casual)) +
+  geom_col(position = "dodge")
+
+cleandata %>%
+  mutate(weekday = wday(started_at, label = TRUE)) %>%
+  group_by(member_casual, weekday) %>%
+  summarise(number_of_rides = n(),
+            average_duration = mean(ride_length, na.rm = TRUE)) %>%
+  arrange(member_casual, weekday) %>%
+  ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
+  geom_col(position = "dodge")
+```
+##Exporting .csv files for further analysis
+```{r}
+write_csv(day_of_week_summary, "dayofweeksumm.csv")
+write_csv(member_status_summary, "memberstatus.csv")
+```
