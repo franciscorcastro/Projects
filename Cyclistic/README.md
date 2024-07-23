@@ -113,11 +113,11 @@ into a single dataset by merging the 13 .csv files using Windows’
 Command Prompt, as described in the next section. The combined data set 
 contained 6454011 rows and 13 columns for the variables listed below.
 
-![https://miro.medium.com/v2/resize:fit:700/1*veCGqGcmVAvmn6KA__URaw.png](https://miro.medium.com/v2/resize:fit:700/1*veCGqGcmVAvmn6KA__URaw.png)
+![https://github.com/franciscorcastro/Projects/blob/main/Cyclistic/img/variable_description.png](https://github.com/franciscorcastro/Projects/blob/main/Cyclistic/img/variable_description.png)
 
 Variable and Description
 
-![https://miro.medium.com/v2/resize:fit:314/1*MMBV9_u8icO7ecBNW-cftw.png](https://miro.medium.com/v2/resize:fit:314/1*MMBV9_u8icO7ecBNW-cftw.png)
+![https://github.com/franciscorcastro/Projects/blob/main/Cyclistic/img/column_datatype.png](https://github.com/franciscorcastro/Projects/blob/main/Cyclistic/img/column_datatype.png)
 
 Column and Data Type (in R)
 
