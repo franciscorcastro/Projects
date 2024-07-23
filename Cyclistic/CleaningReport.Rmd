@@ -4,14 +4,6 @@ author: "Francisco"
 date: "2024-07-14"
 output: html_document
 ---
-## Merging CSV files
-Open Windows Command Prompt and merge csv files:
-
-```{bash eval=FALSE, include=FALSE}
-cd WorkingDirectoryPath
-copy *.csv merged.csv
-```
-
 ## Installing and loading necessary packages for importing and cleaning data
 ```{r}
 install.packages("tidyverse", repos="http://cran.us.r-project.org")
