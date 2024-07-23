@@ -1,6 +1,6 @@
 # Data Analytics Projects Portfolio
 
-Welcome to my Data Analytics Projects Portfolio! This repository showcases a collection of data analytics projects that I have worked on, demonstrating my skills in data cleaning, data visualization, statistical analysis, etc. Each project includes a detailed analysis, code, and visualizations.
+Hey! I'm Francisco! Welcome to my Data Analytics Projects Portfolio! This repository showcases a collection of data analytics projects that I have worked on, demonstrating my skills in data cleaning, data visualization, statistical analysis, etc. Each project includes a detailed analysis, code, and visualizations.
 
 ## Projects
 
@@ -32,10 +32,10 @@ To get started with any of the projects:
 
 ## Requirements
 
-- Spreadsheets app: You can use either Microsoft Excel or Google Sheets. Check out [Techradar[ (https://www.techradar.com/best/spreadsheet-software)
+- Spreadsheets app: You can use either Microsoft Excel or Google Sheets. Check out [Techradar] (https://www.techradar.com/best/spreadsheet-software)
 - R: Required for projects using R scripts. Install from [CRAN](https://cran.r-project.org/).
-- Tableau Public: Free account required for creating visualizations. Create one on [Tableau Public](https://public.tableau.com/app/discover.
-- Power BI: Paid subscription required for creating reports and dashboards. (free trial available). Check out [Power BI] (https://www.microsoft.com/en-us/power-platform/products/power-bi/pricing)
+- Tableau Public: Free account required for creating visualizations. Create one on [Tableau Public](https://public.tableau.com/app/discover).
+- Power BI: Paid subscription required for creating reports and dashboards. (free trial available). Check out [Power BI] https://www.microsoft.com/en-us/power-platform/products/power-bi/pricing)
 - Additional libraries: Each project may require specific libraries. Please refer to the project's `README.md` for details.
 
 ## Contact
