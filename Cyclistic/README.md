@@ -16,7 +16,7 @@ Table of Contents
 1\. Description and deliverables
 ================================
 
-This case study was my capstone project for GoogleÔÇÖs Data Analytics professional certificate. In the scenario provided, my task was to understand and describe how casual riders and annual members use Cyclistic bikes differently by analyzing the companyÔÇÖs historical trip data. From these insights, the (fictional) team would design a new marketing strategy to convert casual riders into annual members. To get my recommendations approved, they would have to be backed up by compelling data insights and data visualizations.
+This case study was my capstone project for Google's Data Analytics professional certificate. In the scenario provided, my task was to understand and describe how casual riders and annual members use Cyclistic bikes differently by analyzing the company's historical trip data. From these insights, the (fictional) team would design a new marketing strategy to convert casual riders into annual members. To get my recommendations approved, they would have to be backed up by compelling data insights and data visualizations.
 
 Therefore, the deliverables for this project were:
 
@@ -30,7 +30,7 @@ Therefore, the deliverables for this project were:
 2\. Project Overview
 ====================
 
-CyclisticÔÇÖs finance analysts have concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, the marketing director believes that maximizing the number of annual members will be key to future growth. Rather than creating a marketing campaign that targets all-new customers, the marketing director believes there is a solid opportunity to convert casual riders into members. She notes that casual riders are already aware of the Cyclistic program and have chosen Cyclistic for their mobility needs. The marketing director has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. In order to do that, however, the team needs to better understand how annual members and casual riders differ, why casual riders would buy a membership, and how digital media could affect their marketing tactics. The marketing director and her team are interested in analyzing the Cyclistic historical bike trip data to identify trends.
+Cyclistic's finance analysts have concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, the marketing director believes that maximizing the number of annual members will be key to future growth. Rather than creating a marketing campaign that targets all-new customers, the marketing director believes there is a solid opportunity to convert casual riders into members. She notes that casual riders are already aware of the Cyclistic program and have chosen Cyclistic for their mobility needs. The marketing director has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. In order to do that, however, the team needs to better understand how annual members and casual riders differ, why casual riders would buy a membership, and how digital media could affect their marketing tactics. The marketing director and her team are interested in analyzing the Cyclistic historical bike trip data to identify trends.
 
 3\. Tools Used
 ==============
@@ -43,20 +43,20 @@ CyclisticÔÇÖs finance analysts have concluded that annual members are much mo
 4\. Asking the right questions
 ==============================
 
-Before any analysis starts, we should consider what is the actual problem weÔÇÖre trying to solve and how can the resulting insights from our analysis can drive business decisions. In this case, our analysis of the historical trip data from Cyclistic users will inform a new marketing strategy designed to convert casual riders into annual subscribers or members. This brings us to our first deliverable, which was a clear statement of the business task:
+Before any analysis starts, we should consider what is the actual problem we're trying to solve and how can the resulting insights from our analysis can drive business decisions. In this case, our analysis of the historical trip data from Cyclistic users will inform a new marketing strategy designed to convert casual riders into annual subscribers or members. This brings us to our first deliverable, which was a clear statement of the business task:
 
 1.  Analyze historical usage data to describe how annual members and casual users use Cyclistic bikes differently
 
 5\. Getting to know and preparing the data
 ==========================================
 
-As mentioned above, data is located and published in CyclisticÔÇÖs own website through monthly CSV files. ThereÔÇÖs a distinct .csv dataset for each of the last 12 months. Inside every .csv file, there are thousands of rows, each containing information about 1 distinct trip. Each trip contains information logged through multiple columns regarding its duration, date, start and end station as well as some other crucial information such as membership status.
+As mentioned above, data is located and published in Cyclistic's own website through monthly CSV files. There's a distinct .csv dataset for each of the last 12 months. Inside every .csv file, there are thousands of rows, each containing information about 1 distinct trip. Each trip contains information logged through multiple columns regarding its duration, date, start and end station as well as some other crucial information such as membership status.
 
-Since the data is published by the bike-sharing service as open data, there should be no bias or credibility issues. At first glance, the data seems to be reliable, original, comprehensive, and current. Privacy, security and accessibility concerns are handled by the publisher, in this case, the bike sharing service Divvy. All usage of this data throughout this project adheres to the [Data License Agreement](https://divvybikes.com/data-license-agreement) of the publisher. To use the data provided, I downloaded the official files from the publisherÔÇÖs website on 14/07/2024 and compared them with each other to verify integrity.
+Since the data is published by the bike-sharing service as open data, there should be no bias or credibility issues. At first glance, the data seems to be reliable, original, comprehensive, and current. Privacy, security and accessibility concerns are handled by the publisher, in this case, the bike sharing service Divvy. All usage of this data throughout this project adheres to the [Data License Agreement](https://divvybikes.com/data-license-agreement) of the publisher. To use the data provided, I downloaded the official files from the publisher's website on 14/07/2024 and compared them with each other to verify integrity.
 
-Referring back to the business task, which was how casual riders and annual pass riders use the service differently, this dataset provides us with enough information to answer that given that it contains information about all trips that were made in the past 12 months using the service. From there we can identify trends and draw a comparison between the two groups. It is, however, still early to identify all the problems in the dataset, but a quick look through it already showed that there are a lot of blanks and null values across multiple columns. After this, weÔÇÖre able to present the second deliverable, a description of all data sources used:
+Referring back to the business task, which was how casual riders and annual pass riders use the service differently, this dataset provides us with enough information to answer that given that it contains information about all trips that were made in the past 12 months using the service. From there we can identify trends and draw a comparison between the two groups. It is, however, still early to identify all the problems in the dataset, but a quick look through it already showed that there are a lot of blanks and null values across multiple columns. After this, we're able to present the second deliverable, a description of all data sources used:
 
-2\. The data for this activity is from Divvy Bikes, the city of ChicagoÔÇÖs bicycle sharing service. The dataset that was used for this project was the monthly data from June 2023 to June 2024, which was then combined into a single dataset by merging the 13 .csv files using WindowsÔÇÖ Command Prompt, as described in the next section. The combined data set contained 6454011 rows and 13 columns for the variables listed below.
+2\. The data for this activity is from Divvy Bikes, the city of Chicago's bicycle sharing service. The dataset that was used for this project was the monthly data from June 2023 to June 2024, which was then combined into a single dataset by merging the 13 .csv files using Windows' Command Prompt, as described in the next section. The combined data set contained 6454011 rows and 13 columns for the variables listed below.
 
 Variable and DescriptionColumn and Data Type (in R)
 
@@ -65,7 +65,7 @@ Variable and DescriptionColumn and Data Type (in R)
 6\. Processing
 ==============
 
-As hinted above, the first obstacle I went through was that, even though there was no mention of it in the case study guide, all data relative to the years of 2020 and later was organized in monthly .csv files instead of quarterly or yearly as stated in the guide. A quick look through some of the monthly files also showed that merging 3 or 4 months worth of data would exceed Microsoft ExcelÔÇÖs row limit. From that moment on, it became clear I would have to use a tool designed for larger datasets, such as R (through Rstudio).
+As hinted above, the first obstacle I went through was that, even though there was no mention of it in the case study guide, all data relative to the years of 2020 and later was organized in monthly .csv files instead of quarterly or yearly as stated in the guide. A quick look through some of the monthly files also showed that merging 3 or 4 months worth of data would exceed Microsoft Excel's row limit. From that moment on, it became clear I would have to use a tool designed for larger datasets, such as R (through Rstudio).
 
 Before I could start cleaning the data using Rstudio, however, I had to tackle the first issue, which I did using Windows Command Prompt to merge all the monthly .csv files from the last year into one single file which could then be imported to Rstudio. This was done through:
 
@@ -253,6 +253,6 @@ Taking that into consideration, my top three recommendations for the marketing s
 
 These recommendations are also stated in the [Executive Summary](https://github.com/franciscorcastro/Projects/), along with supporting visualizations.
 
-There are, of course some limitations to these recommendations as they are based on the correlations described by the data, not on more accurate causal relations. A survey on casual riders would be an interesting way to get more insight on why theyÔÇÖre not using an annual subscription.
+There are, of course some limitations to these recommendations as they are based on the correlations described by the data, not on more accurate causal relations. A survey on casual riders would be an interesting way to get more insight on why they're not using an annual subscription.
 
 As a final remark, I would just like to say that this project was a lot of fun and a great way to practice all the skills learned during the Google Data Analytics Professional Certificate courses. I will be posting another project in the next few weeks.
