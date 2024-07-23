@@ -46,4 +46,4 @@ If you have any questions or suggestions, feel free to contact me:
 
 ## License
 
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This repository is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for more details.
